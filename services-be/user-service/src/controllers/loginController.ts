@@ -1,6 +1,6 @@
 import bcrypt from "bcryptjs";
-import prisma from "../../prisma/client.js";
-import { generateToken } from "../utils/jwt.js";
+import prisma from "../../prisma/client.ts";
+import { generateToken } from "../utils/jwt.ts";
 import type { Request, Response } from "express";
 async function loginController(req: Request, res: Response) {
   try {

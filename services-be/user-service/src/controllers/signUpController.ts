@@ -1,5 +1,5 @@
 import bcrypt from "bcryptjs";
-import prisma from "../../prisma/client.js";
+import prisma from "../../prisma/client.ts";
 import type { Request, Response } from "express";
 
 async function signUpController(req: Request, res: Response) {

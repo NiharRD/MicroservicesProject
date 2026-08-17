@@ -1,4 +1,4 @@
-import signUpController from "../controllers/signUpController.js";
+import signUpController from "../controllers/signUpController.ts";
 
 const signUpRoute = (app: any) => {
   app.post("/signUp", signUpController);

@@ -1,4 +1,4 @@
-import loginController from "../controllers/loginController.js";
+import loginController from "../controllers/loginController.ts";
 
 const loginRoute = (app: any) => {
   app.post("/login", loginController);
