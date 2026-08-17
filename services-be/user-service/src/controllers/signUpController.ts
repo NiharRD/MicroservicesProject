@@ -1,7 +1,8 @@
 import bcrypt from "bcryptjs";
-async function signUpController(req: any, res: any) {
-  const { email, password } = req.body;
+import prisma from "../../prisma/client.js";
+import type { Request, Response } from "express";
 
+async function signUpController(req: Request, res: Response) {
   try {
     const { email, password } = req.body;
 
@@ -9,8 +10,22 @@ async function signUpController(req: any, res: any) {
     const salt = await bcrypt.genSalt(10);
     const hashedPassword = await bcrypt.hash(password, salt);
 
-    const newUser = { email, password: hashedPassword };
-    // DB operation
+    const exisitingUser = await prisma.user.findUnique({
+      where: {
+        email: email,
+      },
+    });
+
+    if (exisitingUser) {
+      const newUser = await prisma.user.create({
+        data: {
+          email: email,
+          password: hashedPassword,
+        },
+      });
+    } else {
+      res.status(409).json({ message: " User already exists" });
+    }
 
     res.status(201).json({ message: "User registered successfully!" });
   } catch (error) {

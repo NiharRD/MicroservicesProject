@@ -1,39 +1,31 @@
-import { type Request, type Response, type NextFunction } from "express";
-import jwt from "jsonwebtoken";
-import { type AuthRequest } from "../types/express/index.js";
+import type { Request, Response, NextFunction } from "express";
+import { verifyToken } from "../utils/jwt.js";
+
+export interface AuthRequest extends Request {
+  user?: any;
+}
+
 export const authenticateJWT = (
   req: AuthRequest,
   res: Response,
   next: NextFunction,
 ): void => {
-  // Extract the token from the Authorization header (Format: "Bearer <token>")
   const authHeader = req.headers.authorization;
 
-  if (!authHeader || !authHeader.startsWith("Bearer ")) {
-    res.status(401).json({ message: "Access denied. No token provided." });
-    return;
-  }
+  // Check if the Authorization header exists and starts with 'Bearer '
+  if (authHeader && authHeader.startsWith("Bearer ")) {
+    const token: string = authHeader.split(" ")[1] || "";
 
-  const tokenParts = authHeader.split(" ");
-  const token = tokenParts[1];
-
-  if (!token) {
-    res.status(401).json({ message: "Access denied. Malformed token." });
-    return;
-  }
-
-  try {
-    const secret = process.env.JWT_SECRET!;
-
-    // Verify the token
-    const decoded = jwt.verify(token, secret);
-
-    // Attach the decoded user payload to the request object
-    req.user = decoded;
-
-    // Move to the next middleware or route handler
-    next();
-  } catch (error) {
-    res.status(403).json({ message: "Invalid or expired token." });
+    try {
+      const decoded = verifyToken(token);
+      req.user = decoded; // Attach the decoded payload to the request
+      next(); // Pass control to the next middleware/route handler
+    } catch (error) {
+      res.status(401).json({ message: "Invalid or expired token" });
+    }
+  } else {
+    res
+      .status(401)
+      .json({ message: "Authorization header missing or malformed" });
   }
 };
