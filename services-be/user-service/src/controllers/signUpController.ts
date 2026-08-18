@@ -16,7 +16,7 @@ async function signUpController(req: Request, res: Response) {
       },
     });
 
-    if (exisitingUser) {
+    if (!exisitingUser) {
       const newUser = await prisma.user.create({
         data: {
           email: email,

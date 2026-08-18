@@ -1,7 +1,13 @@
 import loginController from "../controllers/loginController.ts";
 
-const loginRoute = (app: any) => {
-  app.post("/login", loginController);
-};
+import { Router } from "express";
 
-export default loginRoute;
+const logInRouter = Router();
+
+logInRouter.post("/login", loginController);
+
+// const signUpRoute = (app: any) => {
+//   app.post("/signUp", signUpController);
+// };
+
+export default logInRouter;
