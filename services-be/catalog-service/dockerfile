@@ -8,10 +8,8 @@ RUN npm install
 # Copy the rest of your code
 COPY . .
 
-# Generate the Prisma client inside the container
-RUN npx prisma generate
 
-EXPOSE 3000
+EXPOSE 9000
 
 # Start the development server
 CMD ["npm", "run", "dev"]

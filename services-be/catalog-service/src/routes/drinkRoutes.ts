@@ -5,19 +5,19 @@ import { createDrinkHandler } from "../controllers/drink.private.controller";
 // import { authenticate } from "../middlewares/authenticate";
 // import { requireAdmin } from "../middlewares/requireAdmin";
 
-const router = Router();
+const drinkRouter = Router();
 
 /**
  * Public routes — read-only, no auth required
  */
-router.get("/", getDrinks); // GET /drinks?page=&limit=&country=&...
-router.get("/:id", getDrink); // GET /drinks/:id
+drinkRouter.get("/v1", getDrinks); // GET /drinks?page=&limit=&country=&...
+drinkRouter.get("/v1/:id", getDrink); // GET /drinks/:id
 
 /**
  * Private routes — mutation, should be protected
  * Uncomment and apply your auth middleware once available:
- * router.post("/", authenticate, requireAdmin, createDrinkHandler);
+ * drinkRouter.post("/", authenticate, requireAdmin, createDrinkHandler);
  */
-router.post("/", createDrinkHandler); // POST /drinks
+drinkRouter.post("/v1", createDrinkHandler); // POST /drinks
 
-export default router;
+export default drinkRouter;

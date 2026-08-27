@@ -107,10 +107,28 @@ services:
     environment:
       # Notice we use 'postgres' as the host, not localhost!
       - DATABASE_URL=postgresql://admin:admin_password@postgres:5432/user_service_db
+    volumes:
+      - ./services-be/user-service:/app
+      - /app/node_modules
     networks:
       - ecommerce_bridge
     depends_on:
       - postgres
+  catalog_service:
+    build:
+      context: ./services-be/catalog-service # Path to your Node.js folder
+    container_name: catalog_service
+    ports:
+      - "9000:9000"
+    environment:
+      - MONGO_URI=mongodb://admin:admin_password@mongodb:27017/catalog_service_db?authSource=admin
+    volumes:
+      - ./services-be/catalog-service:/app
+      - /app/node_modules
+    networks:
+      - ecommerce_bridge
+    depends_on:
+      - mongodb
 
 # Define the custom bridge network
 networks:
