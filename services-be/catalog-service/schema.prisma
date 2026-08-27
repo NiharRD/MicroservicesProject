@@ -1,0 +1,119 @@
+
+
+generator client {
+  provider = "prisma-client"
+  output   = "../generated/prisma"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Drink {
+  id              Int         @id @default(autoincrement())
+  name            String      
+  slug            String      @unique 
+  description     String?    
+  
+   
+  brandId         Int
+  brand           Brand      @relation(fields: [brandId], references: [id])      
+  
+  // Drink-Specific Attributes
+  isAlcoholic     Boolean     @default(false)
+  abv             Decimal?    
+  country         Country[]     
+  flavorProfile   FlavorProfile[]    // e.g., ["Roasted", "Bitter", "Coffee"]
+  dietaryTags     DietaryTag[]    // e.g., ["Vegan", "Gluten-Free", "Keto"]
+  servingTemp     ServingTemperature // e.g., "Chilled (4°C - 7°C)"
+  
+  // Regulatory & Shipping
+  requiresAgeCheck Boolean    @default(false) // Trigger ID verification at checkout
+  isFragile       Boolean     @default(true)  // Useful for shipping glass bottles
+  
+  // Timestamps
+  createdAt       DateTime    @default(now())
+  updatedAt       DateTime    @updatedAt
+}
+
+model Brand {
+  id              Int        @id @default(autoincrement())
+  name            String      // e.g., "Coca-Cola"
+  slug            String      @unique
+  description     String?
+  logoUrl         String?
+  website         String?
+  drinks          Drink[]     
+}
+
+enum Country {
+  INDIA
+  USA
+  CHINA
+  GERMANY
+  UK
+}
+
+enum ServingTemperature {
+  CHILLED
+  ROOM_TEMP
+  WARM
+  HOT
+}
+
+enum FlavorProfile {
+  // Core Tastes
+  SWEET
+  BITTER
+  SOUR
+  TART
+  DRY
+  CRISP
+  
+  // Fruit & Plant
+  FRUITY
+  CITRUS
+  BERRY
+  FLORAL
+  HERBAL
+  
+  // Roast & Earth (Coffee, Stout beers, Whiskey)
+  ROASTED
+  SMOKY
+  WOODY
+  EARTHY
+  
+  // Spice & Richness (Chai, Rums, Liqueurs)
+  SPICY
+  NUTTY
+  CHOCOLATE
+  CARAMEL
+  VANILLA
+}
+
+enum DietaryTag {
+  // Lifestyle & Health
+  VEGETARIAN        // Highly relevant for the Indian market
+  VEGAN
+  KETO
+  PALEO
+  
+  // Allergens & Intolerances
+  GLUTEN_FREE
+  DAIRY_FREE
+  NUT_FREE
+  SOY_FREE
+  
+  // Ingredients & Processing
+  SUGAR_FREE
+  NO_ADDED_SUGAR
+  LOW_CALORIE
+  CAFFEINE_FREE
+  ORGANIC
+  NATURAL_FLAVORS
+  
+  // Religious / Cultural
+  HALAL
+  KOSHER
+}

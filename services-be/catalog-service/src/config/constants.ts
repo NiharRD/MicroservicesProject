@@ -1,0 +1,43 @@
+export const ServingTemperatures = ["CHILLED", "ROOM_TEMP", "WARM", "HOT"];
+
+export const FlavorProfiles = [
+  "SWEET",
+  "BITTER",
+  "SOUR",
+  "TART",
+  "DRY",
+  "CRISP",
+  "FRUITY",
+  "CITRUS",
+  "BERRY",
+  "FLORAL",
+  "HERBAL",
+  "ROASTED",
+  "SMOKY",
+  "WOODY",
+  "EARTHY",
+  "SPICY",
+  "NUTTY",
+  "CHOCOLATE",
+  "CARAMEL",
+  "VANILLA",
+];
+
+export const DietaryTags = [
+  "VEGETARIAN",
+  "VEGAN",
+  "KETO",
+  "PALEO",
+  "GLUTEN_FREE",
+  "DAIRY_FREE",
+  "NUT_FREE",
+  "SOY_FREE",
+  "SUGAR_FREE",
+  "NO_ADDED_SUGAR",
+  "LOW_CALORIE",
+  "CAFFEINE_FREE",
+  "ORGANIC",
+  "NATURAL_FLAVORS",
+  "HALAL",
+  "KOSHER",
+];

@@ -1,0 +1,56 @@
+export enum Country {
+  INDIA = "INDIA",
+  USA = "USA",
+  CHINA = "CHINA",
+  GERMANY = "GERMANY",
+  UK = "UK",
+}
+
+export enum ServingTemperature {
+  CHILLED = "CHILLED",
+  ROOM_TEMP = "ROOM_TEMP",
+  WARM = "WARM",
+  HOT = "HOT",
+}
+
+export enum FlavorProfile {
+  SWEET = "SWEET",
+  BITTER = "BITTER",
+  SOUR = "SOUR",
+  TART = "TART",
+  DRY = "DRY",
+  CRISP = "CRISP",
+  FRUITY = "FRUITY",
+  CITRUS = "CITRUS",
+  BERRY = "BERRY",
+  FLORAL = "FLORAL",
+  HERBAL = "HERBAL",
+  ROASTED = "ROASTED",
+  SMOKY = "SMOKY",
+  WOODY = "WOODY",
+  EARTHY = "EARTHY",
+  SPICY = "SPICY",
+  NUTTY = "NUTTY",
+  CHOCOLATE = "CHOCOLATE",
+  CARAMEL = "CARAMEL",
+  VANILLA = "VANILLA",
+}
+
+export enum DietaryTag {
+  VEGETARIAN = "VEGETARIAN",
+  VEGAN = "VEGAN",
+  KETO = "KETO",
+  PALEO = "PALEO",
+  GLUTEN_FREE = "GLUTEN_FREE",
+  DAIRY_FREE = "DAIRY_FREE",
+  NUT_FREE = "NUT_FREE",
+  SOY_FREE = "SOY_FREE",
+  SUGAR_FREE = "SUGAR_FREE",
+  NO_ADDED_SUGAR = "NO_ADDED_SUGAR",
+  LOW_CALORIE = "LOW_CALORIE",
+  CAFFEINE_FREE = "CAFFEINE_FREE",
+  ORGANIC = "ORGANIC",
+  NATURAL_FLAVORS = "NATURAL_FLAVORS",
+  HALAL = "HALAL",
+  KOSHER = "KOSHER",
+}
