@@ -1,0 +1,18 @@
+_format_version: "3.0"
+_transform: true
+
+services:
+  - name: user-service
+    url: http://user_service:3000 # Points to the container name in docker-compose , IMP IMP IMP
+    routes:
+      - name: user-routes
+        paths:
+          - /api/users
+        strip_path: true
+    plugins:
+      - name: rate-limiting
+        config:
+          minute: 5 # max 5 requests per minute
+          policy: local
+          fault_tolerant: true
+          hide_client_headers: false # Sends headers back to the client showing their remaining quota

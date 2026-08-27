@@ -10,6 +10,7 @@ services:
     networks:
       - ecommerce_bridge
     depends_on:
+      - kong
       - kafka
       - redis
       - postgres
@@ -77,6 +78,39 @@ services:
       - kafka_data:/bitnami/kafka
     networks:
       - ecommerce_bridge
+
+  kong:
+    image: kong:latest
+    container_name: kong_gateway
+    environment:
+      - KONG_DATABASE=off
+      - KONG_DECLARATIVE_CONFIG=/etc/kong/kong.yml
+      - KONG_PROXY_ACCESS_LOG=/dev/stdout
+      - KONG_ADMIN_ACCESS_LOG=/dev/stdout
+      - KONG_PROXY_ERROR_LOG=/dev/stderr
+      - KONG_ADMIN_ERROR_LOG=/dev/stderr
+      - KONG_PROXY_LISTEN=0.0.0.0:8000
+      - KONG_ADMIN_LISTEN=0.0.0.0:8001
+    ports:
+      - "8000:8000" # Proxy port (Where API traffic enters)
+      - "8001:8001" # Admin port (To view Kong's status)
+    volumes:
+      - ./kong.yml:/etc/kong/kong.yml:ro
+    networks:
+      - ecommerce_bridge
+  user_service:
+    build:
+      context: ./services-be/user-service # Path to your Node.js folder
+    container_name: user_service
+    ports:
+      - "3000:3000"
+    environment:
+      # Notice we use 'postgres' as the host, not localhost!
+      - DATABASE_URL=postgresql://admin:admin_password@postgres:5432/user_service_db
+    networks:
+      - ecommerce_bridge
+    depends_on:
+      - postgres
 
 # Define the custom bridge network
 networks:
