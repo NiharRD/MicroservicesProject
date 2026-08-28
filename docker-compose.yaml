@@ -106,7 +106,8 @@ services:
       - "3000:3000"
     environment:
       # Notice we use 'postgres' as the host, not localhost!
-      - DATABASE_URL=postgresql://admin:admin_password@postgres:5432/user_service_db
+      - DATABASE_URL_USER_SERVICE=postgresql://admin:admin_password@postgres:5432/user_service_db
+      - JWT_SECRET=jwt_secret
     volumes:
       - ./services-be/user-service:/app
       - /app/node_modules

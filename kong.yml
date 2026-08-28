@@ -19,14 +19,72 @@ services:
   - name: catalog_service
     url: http://catalog_service:9000 # Points to the container name in docker-compose , IMP IMP IMP
     routes:
-      - name: catalog-routes
+      - name: drink-public-routes
         paths:
           - /api/drinks
         strip_path: true
-    plugins:
-      - name: rate-limiting
-        config:
-          minute: 50 # max 50 requests per minute
-          policy: local
-          fault_tolerant: true
-          hide_client_headers: false # Sends headers back to the client showing their remaining quota
+        methods:
+          - GET
+      - name: drink-private-routes
+        paths:
+          - /api/drinks
+        strip_path: true
+        methods:
+          - POST
+        plugins:
+          # Phase 1: Authentication (Validates signature and expiration)
+          - name: jwt
+            config:
+              claims_to_verify:
+                - exp
+          - name: rate-limiting
+            config:
+              minute: 50 # max 50 requests per minute
+              policy: local
+              fault_tolerant: true
+              hide_client_headers: false # Sends headers back to the client showing their remaining quota
+          # Phase 2: Authorization (Decodes trusted token and checks role)
+          - name: pre-function
+            config:
+              access:
+                - |
+                  local auth_header = kong.request.get_header('Authorization')
+                  if not auth_header then 
+                    return kong.response.exit(401, { error = 'Missing Authorization header' }) 
+                  end
+
+                  local token = auth_header:gsub('Bearer ', '')
+                  local _, payload_b64, _ = token:match("([^%.]+)%.([^%.]+)%.([^%.]+)")
+                  
+                  if not payload_b64 then
+                    return kong.response.exit(400, { error = 'Malformed JWT' }) 
+                  end
+
+                  -- Pad the base64 string
+                  local remainder = #payload_b64 % 4
+                  if remainder > 0 then
+                      payload_b64 = payload_b64 .. string.rep("=", 4 - remainder)
+                  end
+
+                  -- Replace URL-safe characters
+                  payload_b64 = payload_b64:gsub("-", "+"):gsub("_", "/")
+
+                  local payload_str = ngx.decode_base64(payload_b64)
+                  if not payload_str then
+                    return kong.response.exit(400, { error = 'Malformed JWT Payload' })
+                  end
+
+                  -- Since 'cjson' and 'require' are blocked in the Kong sandbox,
+                  -- we can just use native string matching to check the role claim.
+                  if not string.match(payload_str, '"role"%s*:%s*"ADMIN"') then
+                    return kong.response.exit(403, { error = 'Forbidden: Admin access required' })
+                  end
+
+consumers:
+  # Represents your User Service that generates the tokens
+  - username: user-service
+    jwt_secrets:
+      # The 'key' must match the 'iss' (issuer) claim in the JWT payload
+      - key: user-service-issuer
+        secret: jwt_secret
+        algorithm: HS256

@@ -26,7 +26,12 @@ async function loginController(req: Request, res: Response) {
     }
 
     // Generate JWT token
-    const token = generateToken({ id: user.id, username: user.email });
+    const token = generateToken({
+      id: user.id,
+      username: user.email,
+      role: user.role,
+      iss: "user-service-issuer",
+    });
     res.json({ token });
   } catch (error) {}
 }

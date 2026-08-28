@@ -16,7 +16,7 @@ const PORT = process.env.PORT || 3000;
 app.use(express.json());
 
 app.get("/", (req: Request, res: Response) => {
-  res.json({ msg: "hello cuite" });
+  res.json({ msg: "hello cuite from user service" });
 });
 
 app.use("/v1", logInRouter);
