@@ -14,9 +14,9 @@ const PORT = process.env.PORT || 3000;
 app.use(express.json());
 
 app.get("/", (req: Request, res: Response) => {
-  res.json({ msg: "hello cuite from user service" });
+  res.json({ msg: "hello cuite from payments service" });
 });
 
 app.listen(PORT, () => {
-  console.log(`User service is running on port ${PORT}`);
+  console.log(`Payment service is running on port ${PORT}`);
 });
