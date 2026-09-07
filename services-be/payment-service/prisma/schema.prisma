@@ -19,6 +19,7 @@ model Order {
   userId          String   // References User Service
   drinkId         String   // References Catalog/Inventory Service
   amount          Int
+  totalPrice      Int
   status          OrderStatus @default(PENDING) 
   stripeIntentId  String?  @unique
   idempotencyKey  String   @unique

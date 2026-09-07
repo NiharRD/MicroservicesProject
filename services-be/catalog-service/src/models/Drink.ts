@@ -19,6 +19,7 @@ export interface IDrink extends Document {
   servingTemp: ServingTemperature;
   requiresAgeCheck: boolean;
   isFragile: boolean;
+  price: number;
   createdAt: Date;
   updatedAt: Date;
 }
@@ -79,6 +80,11 @@ const DrinkSchema: Schema = new Schema(
 
     requiresAgeCheck: { type: Boolean, default: false },
     isFragile: { type: Boolean, default: true },
+    price: {
+      type: Number,
+      required: true,
+      min: [0, "Price cannot be negative"],
+    },
   },
   {
     timestamps: true, // Automatically manages createdAt and updatedAt

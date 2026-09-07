@@ -18,6 +18,8 @@ export interface DrinkQueryParams {
   search?: string; // matches against name
   sortBy?: string; // e.g. "createdAt", "name"
   sortOrder?: "asc" | "desc";
+  minPrice?: string | number;
+  maxPrice?: string | number;
 }
 
 export interface PaginatedResult<T> {
@@ -90,6 +92,16 @@ const buildDrinkFilter = (params: DrinkQueryParams): DrinkFilter => {
 
   if (params.search) {
     filter.name = { $regex: params.search, $options: "i" };
+  }
+
+  if (params.minPrice !== undefined || params.maxPrice !== undefined) {
+    filter.price = {};
+    if (params.minPrice !== undefined) {
+      (filter.price as Record<string, number>).$gte = Number(params.minPrice);
+    }
+    if (params.maxPrice !== undefined) {
+      (filter.price as Record<string, number>).$lte = Number(params.maxPrice);
+    }
   }
 
   return filter;

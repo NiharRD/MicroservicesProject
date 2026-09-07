@@ -22,11 +22,12 @@ export const createDrinkHandler = async (
       !payload.name ||
       !payload.slug ||
       !payload.brand ||
-      !payload.servingTemp
+      !payload.servingTemp ||
+      payload.price === undefined
     ) {
       res.status(400).json({
         success: false,
-        message: "name, slug, brand and servingTemp are required",
+        message: "name, slug, brand, servingTemp and price are required",
       });
       return;
     }

@@ -21,6 +21,7 @@ model Drink {
   brand           Brand      @relation(fields: [brandId], references: [id])      
   
   // Drink-Specific Attributes
+  price           Decimal
   isAlcoholic     Boolean     @default(false)
   abv             Decimal?    
   country         Country[]     

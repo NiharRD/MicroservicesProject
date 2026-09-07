@@ -20,6 +20,7 @@ export interface CreateDrinkInput {
   servingTemp: ServingTemperature;
   requiresAgeCheck?: boolean;
   isFragile?: boolean;
+  price: number;
 }
 
 export class BrandNotFoundError extends Error {
