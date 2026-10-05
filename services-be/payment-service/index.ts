@@ -1,7 +1,7 @@
 import dotenv from "dotenv";
 import { fileURLToPath } from "url";
 import path from "path";
-
+import paymentRouter from "./src/routes/paymentRoute.js";
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 dotenv.config({ path: path.resolve(__dirname, ".env") });
@@ -16,6 +16,7 @@ app.use(express.json());
 app.get("/", (req: Request, res: Response) => {
   res.json({ msg: "hello cuite from payments service" });
 });
+app.use("/payments", paymentRouter);
 
 app.listen(PORT, () => {
   console.log(`Payment service is running on port ${PORT}`);
