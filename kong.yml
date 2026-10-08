@@ -12,6 +12,20 @@ services:
     plugins:
       - name: rate-limiting
         config:
+          minute: 15 # max 5 requests per minute
+          policy: local
+          fault_tolerant: true
+          hide_client_headers: false # Sends headers back to the client showing their remaining quota
+  - name: payment_service
+    url: http://payment_service:4000 # Points to the container name in docker-compose , IMP IMP IMP
+    routes:
+      - name: payment_service-routes
+        paths:
+          - /api/payment
+        strip_path: true
+    plugins:
+      - name: rate-limiting
+        config:
           minute: 5 # max 5 requests per minute
           policy: local
           fault_tolerant: true
@@ -55,7 +69,7 @@ services:
 
                   local token = auth_header:gsub('Bearer ', '')
                   local _, payload_b64, _ = token:match("([^%.]+)%.([^%.]+)%.([^%.]+)")
-                  
+
                   if not payload_b64 then
                     return kong.response.exit(400, { error = 'Malformed JWT' }) 
                   end

@@ -130,6 +130,21 @@ services:
       - ecommerce_bridge
     depends_on:
       - mongodb
+  payment_service:
+    build:
+      context: ./services-be/payment-service # Path to your Node.js folder
+    container_name: payment_service
+    ports:
+      - "4000:4000"
+    environment:
+      - DATABASE_URL_USER_SERVICE=postgresql://admin:admin_password@localhost:5432/payment_service_db
+    volumes:
+      - ./services-be/payment-service:/app
+      - /app/node_modules
+    networks:
+      - ecommerce_bridge
+    depends_on:
+      - postgres
 
 # Define the custom bridge network
 networks:
