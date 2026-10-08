@@ -19,17 +19,37 @@ services:
   - name: payment_service
     url: http://payment_service:4000 # Points to the container name in docker-compose , IMP IMP IMP
     routes:
-      - name: payment_service-routes
+      - name: payment_service-health-check
         paths:
           - /api/payment
         strip_path: true
-    plugins:
-      - name: rate-limiting
-        config:
-          minute: 5 # max 5 requests per minute
-          policy: local
-          fault_tolerant: true
-          hide_client_headers: false # Sends headers back to the client showing their remaining quota
+        plugins:
+          - name: rate-limiting
+            config:
+              minute: 4
+              policy: local
+              fault_tolerant: true
+              hide_client_headers: false
+      - name: payment_service-checkout
+        paths:
+          - /api/payment/checkout
+        strip_path: false
+        methods:
+          - POST
+        plugins:
+          - name: rate-limiting
+            config:
+              minute: 4
+              policy: local
+              fault_tolerant: true
+              hide_client_headers: false
+      - name: payment_service-webhook-route
+        paths:
+          - /api/payment/webhook
+        strip_path: false
+        methods:
+          - POST
+          ## hehe , here no rate limiting is applied because this route is called by the payment gateway and not by the user
   - name: catalog_service
     url: http://catalog_service:9000 # Points to the container name in docker-compose , IMP IMP IMP
     routes:
@@ -102,3 +122,35 @@ consumers:
       - key: user-service-issuer
         secret: jwt_secret
         algorithm: HS256
+
+# In Kong API Gateway, strip_path controls whether Kong should remove the part of the URL it matched before sending the request to your backend service.
+
+# Think of it as a receptionist forwarding a phone call. If an outside caller asks for "Department API, Extension Checkout", does the receptionist just send "Checkout" to the backend, or the whole phrase "Department API, Extension Checkout"?
+
+# Here is exactly how it behaves in practice.
+
+# Scenario A: strip_path: true (Common Setup)
+# If your Kong route is set to match /api/payment and strip_path is true, Kong chops off /api/payment before forwarding the request.
+
+# Client calls Kong: http://kong:8000/api/payment/checkout
+
+# Kong matches: /api/payment
+
+# Kong strips it out.
+
+# Your Node/Go app receives: /checkout
+
+# Requirement: Your backend application code must be listening on the endpoint /checkout.
+
+# Scenario B: strip_path: false
+# If you set it to false, Kong passes the entire URL exactly as the client typed it to your backend.
+
+# Client calls Kong: http://kong:8000/api/payment/checkout
+
+# Kong matches: /api/payment
+
+# Kong strips: Nothing.
+
+# Your Node/Go app receives: /api/payment/checkout
+
+# Requirement: Your backend application code must be listening on the full endpoint /api/payment/checkout.

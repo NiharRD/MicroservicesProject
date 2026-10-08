@@ -8,8 +8,13 @@ import type { Request, Response } from "express";
 
 const app = express();
 const PORT = process.env.PORT || 3000;
-app.use(express.json());
-
+app.use((req, res, next) => {
+  if (req.originalUrl === "/api/payment/webhook") {
+    next(); // Skip json parsing for webhooks
+  } else {
+    express.json()(req, res, next); // Parse json for everything else (like checkout)
+  }
+});
 app.get("/", (req: Request, res: Response) => {
   res.json({ msg: "hello cuite from payments service" });
 });
