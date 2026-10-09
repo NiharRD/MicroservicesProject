@@ -10,7 +10,7 @@ export async function checkOutController(req: Request, res: Response) {
     const { userId, drinkId, amount } = req.body;
 
     const drinkDetails = await getDrinkDetails(drinkId);
-    const { price } = drinkDetails;
+    const price = drinkDetails?.data?.price || 10; // Fallback to 10 if price is missing in DB
     const totalPrice = price * amount;
     const idempotencyKey = uuidv4();
     const order = await createOrder(
@@ -24,7 +24,7 @@ export async function checkOutController(req: Request, res: Response) {
     // 3. Create a payment intent with Stripe
     const paymentIntent = await stripe.paymentIntents.create(
       {
-        amount,
+        amount: totalPrice * 100, // Stripe expects amount in cents
         currency: "usd",
         metadata: { orderId: order.id }, // Attach order ID for the webhook
       },

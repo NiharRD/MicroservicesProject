@@ -36,13 +36,13 @@ services:
         strip_path: false
         methods:
           - POST
-        plugins:
-          - name: rate-limiting
-            config:
-              minute: 4
-              policy: local
-              fault_tolerant: true
-              hide_client_headers: false
+        # plugins:
+        #   - name: rate-limiting
+        #     config:
+        #       minute: 5000
+        #       policy: local
+        #       fault_tolerant: true
+        #       hide_client_headers: false
       - name: payment_service-webhook-route
         paths:
           - /api/payment/webhook

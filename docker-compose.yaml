@@ -137,7 +137,10 @@ services:
     ports:
       - "4000:4000"
     environment:
-      - DATABASE_URL_USER_SERVICE=postgresql://admin:admin_password@localhost:5432/payment_service_db
+      - DATABASE_URL_PAYMENT_SERVICE=postgresql://admin:admin_password@postgres_db:5432/payment_service_db
+      - BASE_URL_USER_SERVICE=http://kong_gateway:8000/api/users ##  This is the base URL for the user service , never use localhost or
+      - BASE_URL_CATALOG_SERVICE=http://kong_gateway:8000/api/drinks ##  This is the base URL for the catalog service
+
     volumes:
       - ./services-be/payment-service:/app
       - /app/node_modules

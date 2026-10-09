@@ -2,7 +2,7 @@ import prisma from "../../prisma/client.ts";
 export async function createOrder(
   userId: string,
   drinkId: string,
-  quantity: number,
+  amount: number,
   totalPrice: number,
   idempotencyKey: string,
 ) {
@@ -11,7 +11,7 @@ export async function createOrder(
       data: {
         userId,
         drinkId,
-        quantity,
+        amount,
         totalPrice,
         idempotencyKey,
       },

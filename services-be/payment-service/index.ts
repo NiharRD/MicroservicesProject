@@ -18,7 +18,7 @@ app.use((req, res, next) => {
 app.get("/", (req: Request, res: Response) => {
   res.json({ msg: "hello cuite from payments service" });
 });
-app.use("/payments", paymentRouter);
+app.use("/api/payment", paymentRouter); // yeah yeah allowed , check from the CMS backend ehehhe.
 
 app.listen(PORT, () => {
   console.log(`Payment service is running on port ${PORT}`);
