@@ -187,3 +187,146 @@ Keep a `.env` for local npm (loaded with `dotenv`) and set the Docker values in 
 2. Where is the **server** running: host, container, or remote?
 3. Container to container: **service name + container port**. Host to container: **localhost + published port**.
 4. Run `docker compose config` and `printenv` to check what the app actually received.
+
+# MongoDB Environment Variables with Docker
+
+The **variable name** doesn't change. The **value** (host and port) changes depending on who is connecting. `MONGO_URL` and `MONGODB_URI` are just names you pick (`MONGODB_URI` is the common convention). Mongo itself doesn't care what you call it.
+
+---
+
+## 1. Same structure, different host
+
+```
+mongodb://[user:pass@]HOST:PORT/DBNAME[?options]
+```
+
+| Who is connecting                        | Value                                                                                           |
+| ---------------------------------------- | ----------------------------------------------------------------------------------------------- |
+| Node app via `npm start` on your laptop  | `mongodb://localhost:27017/appdb`                                                               |
+| `mongosh` on your laptop                 | `mongosh "mongodb://localhost:27017/appdb"`                                                     |
+| Another container in the compose network | `mongodb://mongo:27017/appdb`                                                                   |
+| Shell inside the Mongo container         | `docker compose exec mongo mongosh` (no URL needed, defaults to localhost inside the container) |
+| Production on Atlas                      | `mongodb+srv://user:pass@cluster0.xxxx.mongodb.net/appdb`                                       |
+
+The rule is the same as for Postgres:
+
+- Host to container: `localhost` + the **published** port (left side of `27017:27017`).
+- Container to container: the **service name** + the **container** port.
+
+If you map `"27018:27017"`, then from your laptop use `localhost:27018`, but from other containers still use `mongo:27017`.
+
+---
+
+## 2. Two different sets of env vars
+
+People often mix these up.
+
+### a) Variables for the Mongo container itself
+
+Used by the official image to create the root user on first startup:
+
+```yaml
+mongo:
+  image: mongo:7
+  environment:
+    MONGO_INITDB_ROOT_USERNAME: ${MONGO_USER}
+    MONGO_INITDB_ROOT_PASSWORD: ${MONGO_PASSWORD}
+```
+
+These names are fixed by the image. As with Postgres, they only apply on first initialization, when the volume is empty.
+
+### b) Variables for your app
+
+The names are your choice, and the value is the connection string:
+
+```yaml
+api:
+  environment:
+    MONGODB_URI: mongodb://${MONGO_USER}:${MONGO_PASSWORD}@mongo:27017/appdb?authSource=admin
+```
+
+---
+
+## 3. Full example
+
+```yaml
+services:
+  api:
+    build: ./api
+    ports:
+      - "3000:3000"
+    environment:
+      MONGODB_URI: mongodb://${MONGO_USER}:${MONGO_PASSWORD}@mongo:27017/appdb?authSource=admin
+    depends_on:
+      mongo:
+        condition: service_healthy
+
+  mongo:
+    image: mongo:7
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: ${MONGO_USER}
+      MONGO_INITDB_ROOT_PASSWORD: ${MONGO_PASSWORD}
+    ports:
+      - "27017:27017" # dev only, remove in production
+    volumes:
+      - mongodata:/data/db
+    healthcheck:
+      test: ["CMD", "mongosh", "--quiet", "--eval", "db.adminCommand('ping')"]
+      interval: 10s
+      retries: 5
+
+volumes:
+  mongodata:
+```
+
+`.env` next to the compose file:
+
+```
+MONGO_USER=admin
+MONGO_PASSWORD=devpassword
+```
+
+For local `npm start` (app on your laptop, Mongo in Docker):
+
+```
+MONGODB_URI=mongodb://admin:devpassword@localhost:27017/appdb?authSource=admin
+```
+
+---
+
+## 4. Auth gotcha
+
+Once you set `MONGO_INITDB_ROOT_USERNAME`, auth is enabled. The root user lives in the `admin` database, so your URL needs `?authSource=admin`, even if you're connecting to `appdb`. Without it you get "Authentication failed", one of the most common Mongo and Docker errors.
+
+For real apps, create a separate user scoped to just `appdb` (least privilege) instead of using root everywhere.
+
+---
+
+## 5. Other things worth knowing
+
+- **Replica sets:** if you run Mongo as a replica set (needed for transactions and change streams), the server advertises its own hostname to clients. From your laptop that name may not resolve, so you may need `?directConnection=true`. This confuses many people when moving between local and Docker.
+- **Special characters** in the password need URL-encoding (`@` becomes `%40`), same as Postgres.
+- **`mongodb+srv://`** is only for DNS-based setups like Atlas. It doesn't take a port and won't work against a plain Docker container.
+- **No auth locally?** `mongodb://mongo:27017/appdb` works only if you did not set the `MONGO_INITDB_*` variables. Fine for local dev, never for production.
+- **Changed credentials and nothing happened?** The volume already exists. Run `docker compose down -v` (deletes data) or update the user manually.
+
+---
+
+## 6. Production
+
+1. Use a managed service (MongoDB Atlas) instead of a Mongo container.
+2. Use `mongodb+srv://` with TLS and a dedicated least-privilege user per service.
+3. Remove `ports:` from the mongo service so it is reachable only inside the network.
+4. Keep credentials in a secret store (GitHub Actions Secrets, AWS Secrets Manager or SSM), never in the repo or baked into the image.
+5. Commit a `.env.example` with fake values, and add `.env` to `.gitignore`.
+6. Validate `MONGODB_URI` at startup (`zod` or `envalid`) so a missing value fails fast.
+
+---
+
+## 7. Quick debugging
+
+1. Where is the client running: host or container?
+2. Container to container: `mongo:27017`. Host to container: `localhost:<published port>`.
+3. `docker compose config` shows the resolved YAML.
+4. `docker compose exec api printenv MONGODB_URI` shows what the app actually received.
+5. "Authentication failed": check `authSource=admin` and URL-encoded password.
