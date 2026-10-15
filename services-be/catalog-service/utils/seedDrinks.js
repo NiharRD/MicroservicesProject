@@ -53,6 +53,7 @@ const drinksData = [
   {
     brandName: "Thums Up",
     name: "Thums Up Classic",
+    price: 2,
     description: "Strong, spicy, and fizzy cola that packs a punch.",
     isAlcoholic: false,
     country: [Country.INDIA],
@@ -65,6 +66,7 @@ const drinksData = [
   {
     brandName: "Thums Up",
     name: "Thums Up Charged",
+    price: 3,
     description: "Extra caffeine and extra strong taste.",
     isAlcoholic: false,
     country: [Country.INDIA],
@@ -79,6 +81,7 @@ const drinksData = [
   {
     brandName: "Frooti",
     name: "Frooti Mango",
+    price: 2,
     description: "The classic, luscious mango drink for everyone.",
     isAlcoholic: false,
     country: [Country.INDIA],
@@ -93,6 +96,7 @@ const drinksData = [
   {
     brandName: "Old Monk",
     name: "Old Monk Supreme Rum",
+    price: 18,
     description: "Vatted Indian dark rum with a distinct vanilla and caramel flavor.",
     isAlcoholic: true,
     abv: 42.8,
@@ -106,6 +110,7 @@ const drinksData = [
   {
     brandName: "Old Monk",
     name: "Old Monk Gold Reserve",
+    price: 25,
     description: "Smoother blend of the classic dark rum, aged longer in oak casks.",
     isAlcoholic: true,
     abv: 42.8,
@@ -121,6 +126,7 @@ const drinksData = [
   {
     brandName: "Amul",
     name: "Amul Kool Kesar",
+    price: 2,
     description: "Refreshing saffron flavored milk.",
     isAlcoholic: false,
     country: [Country.INDIA],
@@ -133,6 +139,7 @@ const drinksData = [
   {
     brandName: "Amul",
     name: "Amul Lassi",
+    price: 2,
     description: "Traditional sweet yogurt-based drink.",
     isAlcoholic: false,
     country: [Country.INDIA],
@@ -147,6 +154,7 @@ const drinksData = [
   {
     brandName: "Rooh Afza",
     name: "Rooh Afza Sharbat",
+    price: 4,
     description: "Cooling herbal and rose syrup drink.",
     isAlcoholic: false,
     country: [Country.INDIA],
@@ -161,6 +169,7 @@ const drinksData = [
   {
     brandName: "Kingfisher",
     name: "Kingfisher Premium",
+    price: 3,
     description: "Light, crisp, and refreshing Indian lager beer.",
     isAlcoholic: true,
     abv: 4.8,
@@ -174,6 +183,7 @@ const drinksData = [
   {
     brandName: "Kingfisher",
     name: "Kingfisher Strong",
+    price: 3,
     description: "High gravity strong beer with a full-bodied taste.",
     isAlcoholic: true,
     abv: 8.0,
@@ -189,6 +199,7 @@ const drinksData = [
   {
     brandName: "Paper Boat",
     name: "Paper Boat Aam Panna",
+    price: 2,
     description: "Tangy and sweet raw mango drink with roasted cumin.",
     isAlcoholic: false,
     country: [Country.INDIA],
@@ -201,6 +212,7 @@ const drinksData = [
   {
     brandName: "Paper Boat",
     name: "Paper Boat Jaljeera",
+    price: 2,
     description: "Zesty, spicy, and tangy cumin-based digestive drink.",
     isAlcoholic: false,
     country: [Country.INDIA],
@@ -215,6 +227,7 @@ const drinksData = [
   {
     brandName: "Bira 91",
     name: "Bira 91 White",
+    price: 4,
     description: "Deliciously different wheat beer with a hint of citrus and coriander.",
     isAlcoholic: true,
     abv: 4.7,
@@ -228,6 +241,7 @@ const drinksData = [
   {
     brandName: "Bira 91",
     name: "Bira 91 Blonde",
+    price: 4,
     description: "Extra hoppy craft lager, floral and crisp.",
     isAlcoholic: true,
     abv: 4.5,
@@ -243,6 +257,7 @@ const drinksData = [
   {
     brandName: "Coca-Cola",
     name: "Coca-Cola Classic",
+    price: 2,
     description: "The original cola taste that refreshes the world.",
     isAlcoholic: false,
     country: [Country.USA],
@@ -255,6 +270,7 @@ const drinksData = [
   {
     brandName: "Coca-Cola",
     name: "Coca-Cola Zero Sugar",
+    price: 2,
     description: "Real Coca-Cola taste with zero sugar and zero calories.",
     isAlcoholic: false,
     country: [Country.USA],
@@ -269,6 +285,7 @@ const drinksData = [
   {
     brandName: "Pepsi",
     name: "Pepsi Regular",
+    price: 2,
     description: "Bold, refreshing, robust cola.",
     isAlcoholic: false,
     country: [Country.USA],
@@ -281,6 +298,7 @@ const drinksData = [
   {
     brandName: "Pepsi",
     name: "Pepsi Black",
+    price: 2,
     description: "Maximum taste, zero sugar cola.",
     isAlcoholic: false,
     country: [Country.USA],
@@ -295,6 +313,7 @@ const drinksData = [
   {
     brandName: "Red Bull",
     name: "Red Bull Energy Drink",
+    price: 3,
     description: "Vitalizes body and mind with taurine and caffeine.",
     isAlcoholic: false,
     country: [Country.GERMANY, Country.USA], // Originated in Austria, closest enum match
@@ -307,6 +326,7 @@ const drinksData = [
   {
     brandName: "Red Bull",
     name: "Red Bull Sugarfree",
+    price: 3,
     description: "Wings without sugar.",
     isAlcoholic: false,
     country: [Country.GERMANY, Country.USA],
@@ -321,6 +341,7 @@ const drinksData = [
   {
     brandName: "Heineken",
     name: "Heineken Lager",
+    price: 4,
     description: "Pure malt lager beer with a perfectly balanced taste.",
     isAlcoholic: true,
     abv: 5.0,
@@ -336,6 +357,7 @@ const drinksData = [
   {
     brandName: "Monster",
     name: "Monster Energy",
+    price: 3,
     description: "Tear into a can of the meanest energy drink on the planet.",
     isAlcoholic: false,
     country: [Country.USA],
@@ -348,6 +370,7 @@ const drinksData = [
   {
     brandName: "Monster",
     name: "Monster Ultra",
+    price: 3,
     description: "Lighter-tasting, zero sugar energy drink.",
     isAlcoholic: false,
     country: [Country.USA],
@@ -362,6 +385,7 @@ const drinksData = [
   {
     brandName: "Johnnie Walker",
     name: "Johnnie Walker Black Label",
+    price: 45,
     description: "A true icon of blended Scotch whisky, aged 12 years.",
     isAlcoholic: true,
     abv: 40.0,
@@ -375,6 +399,7 @@ const drinksData = [
   {
     brandName: "Johnnie Walker",
     name: "Johnnie Walker Red Label",
+    price: 25,
     description: "Pioneer blend with a bold, characterful flavor.",
     isAlcoholic: true,
     abv: 40.0,
@@ -390,6 +415,7 @@ const drinksData = [
   {
     brandName: "Schweppes",
     name: "Schweppes Tonic Water",
+    price: 2,
     description: "Classic sparkling tonic water with quinine.",
     isAlcoholic: false,
     country: [Country.UK],
@@ -402,6 +428,7 @@ const drinksData = [
   {
     brandName: "Schweppes",
     name: "Schweppes Ginger Ale",
+    price: 2,
     description: "Crisp and refreshing ginger ale.",
     isAlcoholic: false,
     country: [Country.UK],
@@ -416,6 +443,7 @@ const drinksData = [
   {
     brandName: "Jack Daniel's",
     name: "Jack Daniel's Old No. 7",
+    price: 30,
     description: "Mellowed drop by drop through 10-feet of sugar maple charcoal.",
     isAlcoholic: true,
     abv: 40.0,
@@ -429,6 +457,7 @@ const drinksData = [
   {
     brandName: "Jack Daniel's",
     name: "Jack Daniel's Tennessee Honey",
+    price: 28,
     description: "A blend of Jack Daniel’s Tennessee Whiskey and a unique honey liqueur.",
     isAlcoholic: true,
     abv: 35.0,
