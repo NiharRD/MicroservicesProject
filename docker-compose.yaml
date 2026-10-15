@@ -151,6 +151,8 @@ services:
   stripe-cli:
     image: stripe/stripe-cli:latest
     command: "listen --api-key ${STRIPE_SECRET_KEY} --forward-to http://payment_service:4000/api/payment/webhook --all-snapshot"
+    networks:
+      - ecommerce_bridge
     depends_on:
       - payment_service
 
