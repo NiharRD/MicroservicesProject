@@ -56,13 +56,13 @@ services:
       - name: drink-public-routes
         paths:
           - /api/drinks
-        strip_path: true
+        strip_path: false
         methods:
           - GET
       - name: drink-private-routes
         paths:
           - /api/drinks
-        strip_path: true
+        strip_path: false
         methods:
           - POST
         plugins:

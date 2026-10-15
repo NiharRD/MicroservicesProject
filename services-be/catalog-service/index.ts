@@ -20,7 +20,7 @@ app.get("/", (req: Request, res: Response) => {
   res.json({ msg: "hello cutie , from the catalog service" });
 });
 
-app.use("/api", drinkRouter);
+app.use("/api/drinks", drinkRouter);
 
 console.log(drinkRouter.stack.map(l => l.route?.path)); app.listen(PORT, () => {
   console.log(`Catalog service is running on port ${PORT}`);

@@ -1,5 +1,5 @@
 services:
-  # 1. API Gateway
+  # 1. NGINX Reverse Proxy
   nginx:
     image: nginx:alpine
     container_name: api_gateway
@@ -140,8 +140,7 @@ services:
       - DATABASE_URL_PAYMENT_SERVICE=postgresql://admin:admin_password@postgres_db:5432/payment_service_db
       - BASE_URL_USER_SERVICE=http://kong_gateway:8000/api/users ##  This is the base URL for the user service , never use localhost or
       - BASE_URL_CATALOG_SERVICE=http://kong_gateway:8000/api/drinks ##  This is the base URL for the catalog service
-      - STRIPE_SECRET_KEY=
-      - STRIPE_WEBHOOK_SECRET=
+      - STRIPE_WEBHOOK_SECRET=whsec_bd57fee986c53b59f550fa368ffc03ab4af2dc7ab715af132edbea682c0ea415
     volumes:
       - ./services-be/payment-service:/app
       - /app/node_modules
@@ -149,6 +148,11 @@ services:
       - ecommerce_bridge
     depends_on:
       - postgres
+  stripe-cli:
+    image: stripe/stripe-cli:latest
+    command: "listen --api-key ${STRIPE_SECRET_KEY} --forward-to http://payment_service:4000/api/payment/webhook --all-snapshot"
+    depends_on:
+      - payment_service
 
 # Define the custom bridge network
 networks:
@@ -164,3 +168,5 @@ volumes:
 
   ### 2.Rebuild Without Cache:Core Step.Force Docker to ignore all previously cached layers and execute every instruction in your Dockerfile from scratch.
 # docker compose build --no-cache
+
+## docker compose up -d --force-recreate stripe-cli
