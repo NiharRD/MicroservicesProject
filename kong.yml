@@ -3,7 +3,7 @@ _transform: true
 
 services:
   - name: user-service
-    url: http://user_service:3000 # Points to the container name in docker-compose , IMP IMP IMP
+    url: http://user_service:3000/v1 # Points to the container name in docker-compose , IMP IMP IMP
     routes:
       - name: user-routes
         paths:
@@ -22,7 +22,7 @@ services:
       - name: payment_service-health-check
         paths:
           - /api/payment
-        strip_path: true
+        strip_path: false
         plugins:
           - name: rate-limiting
             config:
@@ -36,13 +36,75 @@ services:
         strip_path: false
         methods:
           - POST
-        # plugins:
-        #   - name: rate-limiting
-        #     config:
-        #       minute: 5000
-        #       policy: local
-        #       fault_tolerant: true
-        #       hide_client_headers: false
+        plugins:
+          # Phase 1: Authentication (Validates signature and expiration)
+          - name: jwt
+            config:
+              claims_to_verify:
+                - exp
+          - name: rate-limiting
+            config:
+              minute: 50 # max 50 requests per minute
+              policy: local
+              fault_tolerant: true
+              hide_client_headers: false # Sends headers back to the client showing their remaining quota
+          # Phase 2: Authorization (Decodes trusted token and checks role)
+          - name: pre-function
+            config:
+              access:
+                - |
+                  local auth_header = kong.request.get_header('Authorization')
+                  if not auth_header then 
+                    return kong.response.exit(401, { error = 'Missing Authorization header' }) 
+                  end
+
+                  local token = auth_header:gsub('Bearer ', '')
+                  local _, payload_b64, _ = token:match("([^%.]+)%.([^%.]+)%.([^%.]+)")
+
+                  if not payload_b64 then
+                    return kong.response.exit(400, { error = 'Malformed JWT' }) 
+                  end
+
+                  -- Pad the base64 string
+                  local remainder = #payload_b64 % 4
+                  if remainder > 0 then
+                    payload_b64 = payload_b64 .. string.rep("=", 4 - remainder)
+                  end
+
+                  -- Replace URL-safe characters
+                  payload_b64 = payload_b64:gsub("-", "+"):gsub("_", "/")
+
+                  local payload_str = ngx.decode_base64(payload_b64)
+                  if not payload_str then
+                    return kong.response.exit(400, { error = 'Malformed JWT Payload' })
+                  end
+
+                  -- Check for userId match on POST requests
+                  if kong.request.get_method() == "POST" then
+                    -- Get the parsed body parameters
+                    local body, err = kong.request.get_body()
+                    
+                    -- Proceed only if we successfully parsed the body and it contains 'userId'
+                    if body and body.userId then
+                      local req_user_id = tostring(body.userId)
+                      
+                      -- Extract "id" from payload using native string matching (Kong sandbox safe)
+                      -- First try matching a string id (e.g., "id": "123")
+                      local token_id = string.match(payload_str, '"id"%s*:%s*"([^"]+)"')
+                      if not token_id then
+                        -- Fallback to matching a numeric/unquoted id (e.g., "id": 123)
+                        token_id = string.match(payload_str, '"id"%s*:%s*([%w%-]+)')
+                      end
+                      
+                      -- If the token doesn't have an id, or it doesn't match the request userId
+                      if not token_id then
+                        return kong.response.exit(403, { error = 'Forbidden: JWT missing id claim' })
+                      elseif tostring(token_id) ~= req_user_id then
+                        return kong.response.exit(403, { error = 'Forbidden: userId does not match token id' })
+                      end
+                    end
+                  end
+
       - name: payment_service-webhook-route
         paths:
           - /api/payment/webhook

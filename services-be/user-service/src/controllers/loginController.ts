@@ -33,7 +33,10 @@ async function loginController(req: Request, res: Response) {
       iss: "user-service-issuer",
     });
     res.json({ token });
-  } catch (error) {}
+  } catch (error) {
+    console.error("Login failed:", error);
+    res.status(500).json({ message: "Internal server error" });
+  }
 }
 
 export default loginController;

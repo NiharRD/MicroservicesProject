@@ -19,7 +19,7 @@ export async function checkOutController(req: Request, res: Response) {
       amount,
       totalPrice,
       idempotencyKey,
-    ); // create order in the database ( pending)
+    ); // create order in the database
 
     // 3. Create a payment intent with Stripe
     const paymentIntent = await stripe.paymentIntents.create(

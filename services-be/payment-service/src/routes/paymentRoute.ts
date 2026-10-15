@@ -13,6 +13,10 @@ paymentRouter.post(
   webHookController,
 ); // should be public  hehhe ,endpoint
 
+paymentRouter.get("/health", (req, res) => {
+  res.json({ msg: "hello cuite from payments service is healthy" });
+});
+
 export default paymentRouter;
 
 // CRUX :the payment provider's SDK needs the exact, unaltered byte sequence of the payload.

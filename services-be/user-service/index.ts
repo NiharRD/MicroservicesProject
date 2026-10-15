@@ -15,7 +15,7 @@ const app = express();
 const PORT = process.env.PORT || 3000;
 app.use(express.json());
 
-app.get("/", (req: Request, res: Response) => {
+app.get("/v1/health", (req: Request, res: Response) => {
   res.json({ msg: "hello cuite from user service" });
 });
 
