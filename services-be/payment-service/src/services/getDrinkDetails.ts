@@ -11,7 +11,7 @@ const BASE_URL_CATALOG_SERVICE =
 export async function getDrinkDetails(drinkId: string) {
   try {
     const response = await fetch(
-      `${BASE_URL_CATALOG_SERVICE}/api/v1/${drinkId}`,
+      `${BASE_URL_CATALOG_SERVICE}/${drinkId}`,
     );
     if (!response.ok) {
       throw new Error("Failed to fetch drink details");

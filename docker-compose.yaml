@@ -139,7 +139,7 @@ services:
     environment:
       - DATABASE_URL_PAYMENT_SERVICE=postgresql://admin:admin_password@postgres_db:5432/payment_service_db
       - BASE_URL_USER_SERVICE=http://kong_gateway:8000/api/users ##  This is the base URL for the user service , never use localhost or
-      - BASE_URL_CATALOG_SERVICE=http://kong_gateway:8000/api/drinks ##  This is the base URL for the catalog service
+      - BASE_URL_CATALOG_SERVICE=http://kong_gateway:8000/api/drinks/v1 ##  This is the base URL for the catalog service (includes the API version)
       - STRIPE_WEBHOOK_SECRET=whsec_bd57fee986c53b59f550fa368ffc03ab4af2dc7ab715af132edbea682c0ea415
     volumes:
       - ./services-be/payment-service:/app
