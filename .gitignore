@@ -144,3 +144,6 @@ vite.config.ts.timestamp-*
 
 package-lock.json
 services-be/payment-service/API Testing.md
+
+venv/
+.venv/
