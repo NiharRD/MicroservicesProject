@@ -6,6 +6,7 @@ import {
   FlavorProfile,
   DietaryTag,
 } from "../types/enums";
+import { producer } from "../lib/kafka";
 
 export interface CreateDrinkInput {
   name: string;
@@ -62,3 +63,26 @@ export const createDrink = async (input: CreateDrinkInput): Promise<IDrink> => {
 
   return drink.save();
 };
+
+export const drinkAdditionToKafkaTopic = async (
+  payload: any,
+  mongoId: string,
+) => {
+  // This is the Kafka topic name for drink addition events
+
+  await producer.send({
+    topic: "drink-addition",
+    messages: [
+      {
+        value: JSON.stringify({
+          type: "DRINK_ADDED",
+          details: payload,
+          timestamp: new Date(),
+          mongoId: mongoId,
+        }),
+      },
+    ],
+  });
+};
+
+// This is the Kafka topic name for drink addition events

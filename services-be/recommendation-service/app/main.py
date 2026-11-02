@@ -1,26 +1,20 @@
 from typing import Union
 from fastapi import FastAPI
 from pydantic import BaseModel
+from contextlib import asynccontextmanager
+import asyncio
+from app.consumers.order_consumer import consume_events
 
-app = FastAPI()
 
-# Define a Pydantic model for request body validation
-class Item(BaseModel):
-    name: str
-    price: float
-    is_offer: Union[bool, None] = None
 
-# A basic GET endpoint
-@app.get("/")
-def read_root():
-    return {"message": "Welcome to FastAPI!"}
 
-# A GET endpoint with path and query parameters
-@app.get("/items/{item_id}")
-def read_item(item_id: int, q: Union[str, None] = None):
-    return {"item_id": item_id, "q": q}
+@asynccontextmanager
+async def lifespan(app: FastAPI):
+    # Start the Kafka consumer as a background task
+    consumer_task = asyncio.create_task(consume_events())
+    yield
+    # Clean up when the server shuts down
+    consumer_task.cancel()
 
-# A POST endpoint that expects a JSON body matching the Item model
-@app.post("/items/")
-def create_item(item: Item):
-    return {"item_name": item.name, "item_price": item.price, "status": "created"}
+app = FastAPI(lifespan=lifespan)
+

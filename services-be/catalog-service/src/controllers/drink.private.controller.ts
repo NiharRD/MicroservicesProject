@@ -4,6 +4,7 @@ import {
   BrandNotFoundError,
   DuplicateSlugError,
   CreateDrinkInput,
+  drinkAdditionToKafkaTopic,
 } from "../services/drink.private.service";
 
 /**
@@ -33,6 +34,13 @@ export const createDrinkHandler = async (
     }
 
     const drink = await createDrink(payload);
+
+    try {
+      await drinkAdditionToKafkaTopic(payload, drink._id.toString());
+    } catch (kafkaError) {
+      console.error("Failed to publish DRINK_ADDED event", kafkaError);
+      // Optionally: persist to a retry/outbox collection
+    }
 
     res.status(201).json({
       success: true,

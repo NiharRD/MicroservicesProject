@@ -2,4 +2,5 @@ fastapi[standard]
 uvicorn 
 qdrant-client 
 openai 
-pydantic
+pydantic 
+aiokafka
