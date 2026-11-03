@@ -1,0 +1,240 @@
+[{
+  "_id": {
+    "$oid": "6ad135eb5aa066d1f7049825"
+  },
+  "name": "Thums Up",
+  "slug": "thums-up",
+  "description": "Taste the thunder! Strong cola.",
+  "__v": 0,
+  "createdAt": {
+    "$date": "2026-10-15T20:22:03.426Z"
+  },
+  "updatedAt": {
+    "$date": "2026-10-15T20:22:03.426Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "6ad135eb5aa066d1f7049826"
+  },
+  "name": "Frooti",
+  "slug": "frooti",
+  "description": "Fresh and juicy mango drink.",
+  "__v": 0,
+  "createdAt": {
+    "$date": "2026-10-15T20:22:03.426Z"
+  },
+  "updatedAt": {
+    "$date": "2026-10-15T20:22:03.426Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "6ad135eb5aa066d1f7049827"
+  },
+  "name": "Old Monk",
+  "slug": "old-monk",
+  "description": "Legendary Indian dark rum.",
+  "__v": 0,
+  "createdAt": {
+    "$date": "2026-10-15T20:22:03.426Z"
+  },
+  "updatedAt": {
+    "$date": "2026-10-15T20:22:03.426Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "6ad135eb5aa066d1f7049828"
+  },
+  "name": "Amul",
+  "slug": "amul",
+  "description": "The taste of India. Dairy based drinks.",
+  "__v": 0,
+  "createdAt": {
+    "$date": "2026-10-15T20:22:03.426Z"
+  },
+  "updatedAt": {
+    "$date": "2026-10-15T20:22:03.426Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "6ad135eb5aa066d1f7049829"
+  },
+  "name": "Rooh Afza",
+  "slug": "rooh-afza",
+  "description": "Summer drink of the east. Rose syrup.",
+  "__v": 0,
+  "createdAt": {
+    "$date": "2026-10-15T20:22:03.426Z"
+  },
+  "updatedAt": {
+    "$date": "2026-10-15T20:22:03.426Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "6ad135eb5aa066d1f704982a"
+  },
+  "name": "Kingfisher",
+  "slug": "kingfisher",
+  "description": "The king of good times. Premium beer.",
+  "__v": 0,
+  "createdAt": {
+    "$date": "2026-10-15T20:22:03.426Z"
+  },
+  "updatedAt": {
+    "$date": "2026-10-15T20:22:03.426Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "6ad135eb5aa066d1f704982b"
+  },
+  "name": "Paper Boat",
+  "slug": "paper-boat",
+  "description": "Drinks and memories. Traditional Indian drinks.",
+  "__v": 0,
+  "createdAt": {
+    "$date": "2026-10-15T20:22:03.426Z"
+  },
+  "updatedAt": {
+    "$date": "2026-10-15T20:22:03.426Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "6ad135eb5aa066d1f704982c"
+  },
+  "name": "Bira 91",
+  "slug": "bira-91",
+  "description": "Imagined in India, for the world. Craft beer.",
+  "__v": 0,
+  "createdAt": {
+    "$date": "2026-10-15T20:22:03.426Z"
+  },
+  "updatedAt": {
+    "$date": "2026-10-15T20:22:03.426Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "6ad135eb5aa066d1f704982d"
+  },
+  "name": "Coca-Cola",
+  "slug": "coca-cola",
+  "description": "Real magic. Classic cola.",
+  "__v": 0,
+  "createdAt": {
+    "$date": "2026-10-15T20:22:03.426Z"
+  },
+  "updatedAt": {
+    "$date": "2026-10-15T20:22:03.426Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "6ad135eb5aa066d1f704982e"
+  },
+  "name": "Pepsi",
+  "slug": "pepsi",
+  "description": "That's what I like.",
+  "__v": 0,
+  "createdAt": {
+    "$date": "2026-10-15T20:22:03.426Z"
+  },
+  "updatedAt": {
+    "$date": "2026-10-15T20:22:03.426Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "6ad135eb5aa066d1f704982f"
+  },
+  "name": "Red Bull",
+  "slug": "red-bull",
+  "description": "Gives you wings. Energy drink.",
+  "__v": 0,
+  "createdAt": {
+    "$date": "2026-10-15T20:22:03.427Z"
+  },
+  "updatedAt": {
+    "$date": "2026-10-15T20:22:03.427Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "6ad135eb5aa066d1f7049830"
+  },
+  "name": "Heineken",
+  "slug": "heineken",
+  "description": "Open your world. Premium lager.",
+  "__v": 0,
+  "createdAt": {
+    "$date": "2026-10-15T20:22:03.427Z"
+  },
+  "updatedAt": {
+    "$date": "2026-10-15T20:22:03.427Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "6ad135eb5aa066d1f7049831"
+  },
+  "name": "Monster",
+  "slug": "monster",
+  "description": "Unleash the beast. Energy.",
+  "__v": 0,
+  "createdAt": {
+    "$date": "2026-10-15T20:22:03.427Z"
+  },
+  "updatedAt": {
+    "$date": "2026-10-15T20:22:03.427Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "6ad135eb5aa066d1f7049832"
+  },
+  "name": "Johnnie Walker",
+  "slug": "johnnie-walker",
+  "description": "Keep walking. Blended Scotch Whisky.",
+  "__v": 0,
+  "createdAt": {
+    "$date": "2026-10-15T20:22:03.427Z"
+  },
+  "updatedAt": {
+    "$date": "2026-10-15T20:22:03.427Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "6ad135eb5aa066d1f7049833"
+  },
+  "name": "Schweppes",
+  "slug": "schweppes",
+  "description": "Effervescence since 1783.",
+  "__v": 0,
+  "createdAt": {
+    "$date": "2026-10-15T20:22:03.427Z"
+  },
+  "updatedAt": {
+    "$date": "2026-10-15T20:22:03.427Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "6ad135eb5aa066d1f7049834"
+  },
+  "name": "Jack Daniel's",
+  "slug": "jack-daniels",
+  "description": "Tennessee Whiskey.",
+  "__v": 0,
+  "createdAt": {
+    "$date": "2026-10-15T20:22:03.427Z"
+  },
+  "updatedAt": {
+    "$date": "2026-10-15T20:22:03.427Z"
+  }
+}]

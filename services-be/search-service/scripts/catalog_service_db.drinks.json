@@ -1,0 +1,1044 @@
+[{
+  "_id": {
+    "$oid": "6ad135eb5aa066d1f7049835"
+  },
+  "name": "Thums Up Classic",
+  "slug": "thums-up-classic",
+  "description": "Strong, spicy, and fizzy cola that packs a punch.",
+  "brand": {
+    "$oid": "6ad135eb5aa066d1f7049825"
+  },
+  "isAlcoholic": false,
+  "country": [
+    "INDIA"
+  ],
+  "flavorProfile": [
+    "SWEET",
+    "SPICY",
+    "ROASTED"
+  ],
+  "dietaryTags": [
+    "VEGAN",
+    "VEGETARIAN",
+    "DAIRY_FREE"
+  ],
+  "servingTemp": "CHILLED",
+  "requiresAgeCheck": false,
+  "isFragile": false,
+  "price": 2,
+  "__v": 0,
+  "createdAt": {
+    "$date": "2026-10-15T20:22:03.464Z"
+  },
+  "updatedAt": {
+    "$date": "2026-10-15T20:22:03.464Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "6ad135eb5aa066d1f7049836"
+  },
+  "name": "Thums Up Charged",
+  "slug": "thums-up-charged",
+  "description": "Extra caffeine and extra strong taste.",
+  "brand": {
+    "$oid": "6ad135eb5aa066d1f7049825"
+  },
+  "isAlcoholic": false,
+  "country": [
+    "INDIA"
+  ],
+  "flavorProfile": [
+    "SWEET",
+    "SPICY"
+  ],
+  "dietaryTags": [
+    "VEGAN",
+    "VEGETARIAN"
+  ],
+  "servingTemp": "CHILLED",
+  "requiresAgeCheck": false,
+  "isFragile": false,
+  "price": 3,
+  "__v": 0,
+  "createdAt": {
+    "$date": "2026-10-15T20:22:03.464Z"
+  },
+  "updatedAt": {
+    "$date": "2026-10-15T20:22:03.464Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "6ad135eb5aa066d1f7049837"
+  },
+  "name": "Frooti Mango",
+  "slug": "frooti-mango",
+  "description": "The classic, luscious mango drink for everyone.",
+  "brand": {
+    "$oid": "6ad135eb5aa066d1f7049826"
+  },
+  "isAlcoholic": false,
+  "country": [
+    "INDIA"
+  ],
+  "flavorProfile": [
+    "SWEET",
+    "FRUITY"
+  ],
+  "dietaryTags": [
+    "VEGAN",
+    "VEGETARIAN",
+    "DAIRY_FREE",
+    "GLUTEN_FREE"
+  ],
+  "servingTemp": "CHILLED",
+  "requiresAgeCheck": false,
+  "isFragile": false,
+  "price": 2,
+  "__v": 0,
+  "createdAt": {
+    "$date": "2026-10-15T20:22:03.465Z"
+  },
+  "updatedAt": {
+    "$date": "2026-10-15T20:22:03.465Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "6ad135eb5aa066d1f7049838"
+  },
+  "name": "Old Monk Supreme Rum",
+  "slug": "old-monk-supreme-rum",
+  "description": "Vatted Indian dark rum with a distinct vanilla and caramel flavor.",
+  "brand": {
+    "$oid": "6ad135eb5aa066d1f7049827"
+  },
+  "isAlcoholic": true,
+  "abv": 42.8,
+  "country": [
+    "INDIA"
+  ],
+  "flavorProfile": [
+    "SWEET",
+    "CARAMEL",
+    "VANILLA",
+    "WOODY"
+  ],
+  "dietaryTags": [
+    "VEGAN",
+    "VEGETARIAN",
+    "DAIRY_FREE"
+  ],
+  "servingTemp": "ROOM_TEMP",
+  "requiresAgeCheck": true,
+  "isFragile": true,
+  "price": 18,
+  "__v": 0,
+  "createdAt": {
+    "$date": "2026-10-15T20:22:03.465Z"
+  },
+  "updatedAt": {
+    "$date": "2026-10-15T20:22:03.465Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "6ad135eb5aa066d1f7049839"
+  },
+  "name": "Old Monk Gold Reserve",
+  "slug": "old-monk-gold-reserve",
+  "description": "Smoother blend of the classic dark rum, aged longer in oak casks.",
+  "brand": {
+    "$oid": "6ad135eb5aa066d1f7049827"
+  },
+  "isAlcoholic": true,
+  "abv": 42.8,
+  "country": [
+    "INDIA"
+  ],
+  "flavorProfile": [
+    "SWEET",
+    "CARAMEL",
+    "SPICY"
+  ],
+  "dietaryTags": [
+    "VEGAN",
+    "VEGETARIAN",
+    "DAIRY_FREE"
+  ],
+  "servingTemp": "ROOM_TEMP",
+  "requiresAgeCheck": true,
+  "isFragile": true,
+  "price": 25,
+  "__v": 0,
+  "createdAt": {
+    "$date": "2026-10-15T20:22:03.465Z"
+  },
+  "updatedAt": {
+    "$date": "2026-10-15T20:22:03.465Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "6ad135eb5aa066d1f704983a"
+  },
+  "name": "Amul Kool Kesar",
+  "slug": "amul-kool-kesar",
+  "description": "Refreshing saffron flavored milk.",
+  "brand": {
+    "$oid": "6ad135eb5aa066d1f7049828"
+  },
+  "isAlcoholic": false,
+  "country": [
+    "INDIA"
+  ],
+  "flavorProfile": [
+    "SWEET",
+    "FLORAL",
+    "NUTTY"
+  ],
+  "dietaryTags": [
+    "VEGETARIAN",
+    "GLUTEN_FREE"
+  ],
+  "servingTemp": "CHILLED",
+  "requiresAgeCheck": false,
+  "isFragile": true,
+  "price": 2,
+  "__v": 0,
+  "createdAt": {
+    "$date": "2026-10-15T20:22:03.465Z"
+  },
+  "updatedAt": {
+    "$date": "2026-10-15T20:22:03.465Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "6ad135eb5aa066d1f704983b"
+  },
+  "name": "Amul Lassi",
+  "slug": "amul-lassi",
+  "description": "Traditional sweet yogurt-based drink.",
+  "brand": {
+    "$oid": "6ad135eb5aa066d1f7049828"
+  },
+  "isAlcoholic": false,
+  "country": [
+    "INDIA"
+  ],
+  "flavorProfile": [
+    "SWEET",
+    "SOUR"
+  ],
+  "dietaryTags": [
+    "VEGETARIAN",
+    "GLUTEN_FREE"
+  ],
+  "servingTemp": "CHILLED",
+  "requiresAgeCheck": false,
+  "isFragile": false,
+  "price": 2,
+  "__v": 0,
+  "createdAt": {
+    "$date": "2026-10-15T20:22:03.465Z"
+  },
+  "updatedAt": {
+    "$date": "2026-10-15T20:22:03.465Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "6ad135eb5aa066d1f704983c"
+  },
+  "name": "Rooh Afza Sharbat",
+  "slug": "rooh-afza-sharbat",
+  "description": "Cooling herbal and rose syrup drink.",
+  "brand": {
+    "$oid": "6ad135eb5aa066d1f7049829"
+  },
+  "isAlcoholic": false,
+  "country": [
+    "INDIA"
+  ],
+  "flavorProfile": [
+    "SWEET",
+    "FLORAL",
+    "HERBAL"
+  ],
+  "dietaryTags": [
+    "VEGAN",
+    "VEGETARIAN",
+    "DAIRY_FREE",
+    "GLUTEN_FREE"
+  ],
+  "servingTemp": "CHILLED",
+  "requiresAgeCheck": false,
+  "isFragile": true,
+  "price": 4,
+  "__v": 0,
+  "createdAt": {
+    "$date": "2026-10-15T20:22:03.465Z"
+  },
+  "updatedAt": {
+    "$date": "2026-10-15T20:22:03.465Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "6ad135eb5aa066d1f704983d"
+  },
+  "name": "Kingfisher Premium",
+  "slug": "kingfisher-premium",
+  "description": "Light, crisp, and refreshing Indian lager beer.",
+  "brand": {
+    "$oid": "6ad135eb5aa066d1f704982a"
+  },
+  "isAlcoholic": true,
+  "abv": 4.8,
+  "country": [
+    "INDIA"
+  ],
+  "flavorProfile": [
+    "CRISP",
+    "BITTER"
+  ],
+  "dietaryTags": [
+    "VEGAN",
+    "VEGETARIAN",
+    "DAIRY_FREE"
+  ],
+  "servingTemp": "CHILLED",
+  "requiresAgeCheck": true,
+  "isFragile": true,
+  "price": 3,
+  "__v": 0,
+  "createdAt": {
+    "$date": "2026-10-15T20:22:03.465Z"
+  },
+  "updatedAt": {
+    "$date": "2026-10-15T20:22:03.465Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "6ad135eb5aa066d1f704983e"
+  },
+  "name": "Kingfisher Strong",
+  "slug": "kingfisher-strong",
+  "description": "High gravity strong beer with a full-bodied taste.",
+  "brand": {
+    "$oid": "6ad135eb5aa066d1f704982a"
+  },
+  "isAlcoholic": true,
+  "abv": 8,
+  "country": [
+    "INDIA"
+  ],
+  "flavorProfile": [
+    "BITTER",
+    "CRISP"
+  ],
+  "dietaryTags": [
+    "VEGAN",
+    "VEGETARIAN"
+  ],
+  "servingTemp": "CHILLED",
+  "requiresAgeCheck": true,
+  "isFragile": true,
+  "price": 3,
+  "__v": 0,
+  "createdAt": {
+    "$date": "2026-10-15T20:22:03.466Z"
+  },
+  "updatedAt": {
+    "$date": "2026-10-15T20:22:03.466Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "6ad135eb5aa066d1f704983f"
+  },
+  "name": "Paper Boat Aam Panna",
+  "slug": "paper-boat-aam-panna",
+  "description": "Tangy and sweet raw mango drink with roasted cumin.",
+  "brand": {
+    "$oid": "6ad135eb5aa066d1f704982b"
+  },
+  "isAlcoholic": false,
+  "country": [
+    "INDIA"
+  ],
+  "flavorProfile": [
+    "SOUR",
+    "SWEET",
+    "FRUITY",
+    "SPICY"
+  ],
+  "dietaryTags": [
+    "VEGAN",
+    "VEGETARIAN",
+    "DAIRY_FREE"
+  ],
+  "servingTemp": "CHILLED",
+  "requiresAgeCheck": false,
+  "isFragile": false,
+  "price": 2,
+  "__v": 0,
+  "createdAt": {
+    "$date": "2026-10-15T20:22:03.466Z"
+  },
+  "updatedAt": {
+    "$date": "2026-10-15T20:22:03.466Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "6ad135eb5aa066d1f7049840"
+  },
+  "name": "Paper Boat Jaljeera",
+  "slug": "paper-boat-jaljeera",
+  "description": "Zesty, spicy, and tangy cumin-based digestive drink.",
+  "brand": {
+    "$oid": "6ad135eb5aa066d1f704982b"
+  },
+  "isAlcoholic": false,
+  "country": [
+    "INDIA"
+  ],
+  "flavorProfile": [
+    "SPICY",
+    "SOUR",
+    "HERBAL"
+  ],
+  "dietaryTags": [
+    "VEGAN",
+    "VEGETARIAN",
+    "DAIRY_FREE"
+  ],
+  "servingTemp": "CHILLED",
+  "requiresAgeCheck": false,
+  "isFragile": false,
+  "price": 2,
+  "__v": 0,
+  "createdAt": {
+    "$date": "2026-10-15T20:22:03.466Z"
+  },
+  "updatedAt": {
+    "$date": "2026-10-15T20:22:03.466Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "6ad135eb5aa066d1f7049841"
+  },
+  "name": "Bira 91 White",
+  "slug": "bira-91-white",
+  "description": "Deliciously different wheat beer with a hint of citrus and coriander.",
+  "brand": {
+    "$oid": "6ad135eb5aa066d1f704982c"
+  },
+  "isAlcoholic": true,
+  "abv": 4.7,
+  "country": [
+    "INDIA"
+  ],
+  "flavorProfile": [
+    "CRISP",
+    "CITRUS",
+    "BITTER",
+    "SPICY"
+  ],
+  "dietaryTags": [
+    "VEGAN",
+    "VEGETARIAN"
+  ],
+  "servingTemp": "CHILLED",
+  "requiresAgeCheck": true,
+  "isFragile": true,
+  "price": 4,
+  "__v": 0,
+  "createdAt": {
+    "$date": "2026-10-15T20:22:03.466Z"
+  },
+  "updatedAt": {
+    "$date": "2026-10-15T20:22:03.466Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "6ad135eb5aa066d1f7049842"
+  },
+  "name": "Bira 91 Blonde",
+  "slug": "bira-91-blonde",
+  "description": "Extra hoppy craft lager, floral and crisp.",
+  "brand": {
+    "$oid": "6ad135eb5aa066d1f704982c"
+  },
+  "isAlcoholic": true,
+  "abv": 4.5,
+  "country": [
+    "INDIA"
+  ],
+  "flavorProfile": [
+    "CRISP",
+    "BITTER",
+    "FLORAL"
+  ],
+  "dietaryTags": [
+    "VEGAN",
+    "VEGETARIAN"
+  ],
+  "servingTemp": "CHILLED",
+  "requiresAgeCheck": true,
+  "isFragile": true,
+  "price": 4,
+  "__v": 0,
+  "createdAt": {
+    "$date": "2026-10-15T20:22:03.466Z"
+  },
+  "updatedAt": {
+    "$date": "2026-10-15T20:22:03.466Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "6ad135eb5aa066d1f7049843"
+  },
+  "name": "Coca-Cola Classic",
+  "slug": "coca-cola-classic",
+  "description": "The original cola taste that refreshes the world.",
+  "brand": {
+    "$oid": "6ad135eb5aa066d1f704982d"
+  },
+  "isAlcoholic": false,
+  "country": [
+    "USA"
+  ],
+  "flavorProfile": [
+    "SWEET",
+    "CARAMEL",
+    "CRISP"
+  ],
+  "dietaryTags": [
+    "VEGAN",
+    "VEGETARIAN",
+    "DAIRY_FREE"
+  ],
+  "servingTemp": "CHILLED",
+  "requiresAgeCheck": false,
+  "isFragile": false,
+  "price": 2,
+  "__v": 0,
+  "createdAt": {
+    "$date": "2026-10-15T20:22:03.466Z"
+  },
+  "updatedAt": {
+    "$date": "2026-10-15T20:22:03.466Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "6ad135eb5aa066d1f7049844"
+  },
+  "name": "Coca-Cola Zero Sugar",
+  "slug": "coca-cola-zero-sugar",
+  "description": "Real Coca-Cola taste with zero sugar and zero calories.",
+  "brand": {
+    "$oid": "6ad135eb5aa066d1f704982d"
+  },
+  "isAlcoholic": false,
+  "country": [
+    "USA"
+  ],
+  "flavorProfile": [
+    "SWEET",
+    "CARAMEL",
+    "CRISP"
+  ],
+  "dietaryTags": [
+    "VEGAN",
+    "VEGETARIAN",
+    "SUGAR_FREE",
+    "LOW_CALORIE"
+  ],
+  "servingTemp": "CHILLED",
+  "requiresAgeCheck": false,
+  "isFragile": false,
+  "price": 2,
+  "__v": 0,
+  "createdAt": {
+    "$date": "2026-10-15T20:22:03.466Z"
+  },
+  "updatedAt": {
+    "$date": "2026-10-15T20:22:03.466Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "6ad135eb5aa066d1f7049845"
+  },
+  "name": "Pepsi Regular",
+  "slug": "pepsi-regular",
+  "description": "Bold, refreshing, robust cola.",
+  "brand": {
+    "$oid": "6ad135eb5aa066d1f704982e"
+  },
+  "isAlcoholic": false,
+  "country": [
+    "USA"
+  ],
+  "flavorProfile": [
+    "SWEET",
+    "CITRUS",
+    "CRISP"
+  ],
+  "dietaryTags": [
+    "VEGAN",
+    "VEGETARIAN"
+  ],
+  "servingTemp": "CHILLED",
+  "requiresAgeCheck": false,
+  "isFragile": false,
+  "price": 2,
+  "__v": 0,
+  "createdAt": {
+    "$date": "2026-10-15T20:22:03.466Z"
+  },
+  "updatedAt": {
+    "$date": "2026-10-15T20:22:03.466Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "6ad135eb5aa066d1f7049846"
+  },
+  "name": "Pepsi Black",
+  "slug": "pepsi-black",
+  "description": "Maximum taste, zero sugar cola.",
+  "brand": {
+    "$oid": "6ad135eb5aa066d1f704982e"
+  },
+  "isAlcoholic": false,
+  "country": [
+    "USA"
+  ],
+  "flavorProfile": [
+    "SWEET",
+    "CITRUS",
+    "CRISP"
+  ],
+  "dietaryTags": [
+    "VEGAN",
+    "VEGETARIAN",
+    "SUGAR_FREE",
+    "LOW_CALORIE"
+  ],
+  "servingTemp": "CHILLED",
+  "requiresAgeCheck": false,
+  "isFragile": false,
+  "price": 2,
+  "__v": 0,
+  "createdAt": {
+    "$date": "2026-10-15T20:22:03.466Z"
+  },
+  "updatedAt": {
+    "$date": "2026-10-15T20:22:03.466Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "6ad135eb5aa066d1f7049847"
+  },
+  "name": "Red Bull Energy Drink",
+  "slug": "red-bull-energy-drink",
+  "description": "Vitalizes body and mind with taurine and caffeine.",
+  "brand": {
+    "$oid": "6ad135eb5aa066d1f704982f"
+  },
+  "isAlcoholic": false,
+  "country": [
+    "GERMANY",
+    "USA"
+  ],
+  "flavorProfile": [
+    "SWEET",
+    "TART",
+    "FRUITY"
+  ],
+  "dietaryTags": [
+    "VEGAN",
+    "VEGETARIAN"
+  ],
+  "servingTemp": "CHILLED",
+  "requiresAgeCheck": false,
+  "isFragile": false,
+  "price": 3,
+  "__v": 0,
+  "createdAt": {
+    "$date": "2026-10-15T20:22:03.466Z"
+  },
+  "updatedAt": {
+    "$date": "2026-10-15T20:22:03.466Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "6ad135eb5aa066d1f7049848"
+  },
+  "name": "Red Bull Sugarfree",
+  "slug": "red-bull-sugarfree",
+  "description": "Wings without sugar.",
+  "brand": {
+    "$oid": "6ad135eb5aa066d1f704982f"
+  },
+  "isAlcoholic": false,
+  "country": [
+    "GERMANY",
+    "USA"
+  ],
+  "flavorProfile": [
+    "SWEET",
+    "TART"
+  ],
+  "dietaryTags": [
+    "VEGAN",
+    "VEGETARIAN",
+    "SUGAR_FREE",
+    "LOW_CALORIE"
+  ],
+  "servingTemp": "CHILLED",
+  "requiresAgeCheck": false,
+  "isFragile": false,
+  "price": 3,
+  "__v": 0,
+  "createdAt": {
+    "$date": "2026-10-15T20:22:03.466Z"
+  },
+  "updatedAt": {
+    "$date": "2026-10-15T20:22:03.466Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "6ad135eb5aa066d1f7049849"
+  },
+  "name": "Heineken Lager",
+  "slug": "heineken-lager",
+  "description": "Pure malt lager beer with a perfectly balanced taste.",
+  "brand": {
+    "$oid": "6ad135eb5aa066d1f7049830"
+  },
+  "isAlcoholic": true,
+  "abv": 5,
+  "country": [
+    "GERMANY"
+  ],
+  "flavorProfile": [
+    "CRISP",
+    "BITTER"
+  ],
+  "dietaryTags": [
+    "VEGAN",
+    "VEGETARIAN"
+  ],
+  "servingTemp": "CHILLED",
+  "requiresAgeCheck": true,
+  "isFragile": true,
+  "price": 4,
+  "__v": 0,
+  "createdAt": {
+    "$date": "2026-10-15T20:22:03.466Z"
+  },
+  "updatedAt": {
+    "$date": "2026-10-15T20:22:03.466Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "6ad135eb5aa066d1f704984a"
+  },
+  "name": "Monster Energy",
+  "slug": "monster-energy",
+  "description": "Tear into a can of the meanest energy drink on the planet.",
+  "brand": {
+    "$oid": "6ad135eb5aa066d1f7049831"
+  },
+  "isAlcoholic": false,
+  "country": [
+    "USA"
+  ],
+  "flavorProfile": [
+    "SWEET",
+    "CITRUS"
+  ],
+  "dietaryTags": [
+    "VEGAN",
+    "VEGETARIAN"
+  ],
+  "servingTemp": "CHILLED",
+  "requiresAgeCheck": false,
+  "isFragile": false,
+  "price": 3,
+  "__v": 0,
+  "createdAt": {
+    "$date": "2026-10-15T20:22:03.466Z"
+  },
+  "updatedAt": {
+    "$date": "2026-10-15T20:22:03.466Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "6ad135eb5aa066d1f704984b"
+  },
+  "name": "Monster Ultra",
+  "slug": "monster-ultra",
+  "description": "Lighter-tasting, zero sugar energy drink.",
+  "brand": {
+    "$oid": "6ad135eb5aa066d1f7049831"
+  },
+  "isAlcoholic": false,
+  "country": [
+    "USA"
+  ],
+  "flavorProfile": [
+    "CITRUS",
+    "SWEET",
+    "CRISP"
+  ],
+  "dietaryTags": [
+    "VEGAN",
+    "VEGETARIAN",
+    "SUGAR_FREE",
+    "LOW_CALORIE"
+  ],
+  "servingTemp": "CHILLED",
+  "requiresAgeCheck": false,
+  "isFragile": false,
+  "price": 3,
+  "__v": 0,
+  "createdAt": {
+    "$date": "2026-10-15T20:22:03.466Z"
+  },
+  "updatedAt": {
+    "$date": "2026-10-15T20:22:03.466Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "6ad135eb5aa066d1f704984c"
+  },
+  "name": "Johnnie Walker Black Label",
+  "slug": "johnnie-walker-black-label",
+  "description": "A true icon of blended Scotch whisky, aged 12 years.",
+  "brand": {
+    "$oid": "6ad135eb5aa066d1f7049832"
+  },
+  "isAlcoholic": true,
+  "abv": 40,
+  "country": [
+    "UK"
+  ],
+  "flavorProfile": [
+    "SMOKY",
+    "WOODY",
+    "CARAMEL",
+    "VANILLA"
+  ],
+  "dietaryTags": [
+    "VEGAN",
+    "VEGETARIAN"
+  ],
+  "servingTemp": "ROOM_TEMP",
+  "requiresAgeCheck": true,
+  "isFragile": true,
+  "price": 45,
+  "__v": 0,
+  "createdAt": {
+    "$date": "2026-10-15T20:22:03.466Z"
+  },
+  "updatedAt": {
+    "$date": "2026-10-15T20:22:03.466Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "6ad135eb5aa066d1f704984d"
+  },
+  "name": "Johnnie Walker Red Label",
+  "slug": "johnnie-walker-red-label",
+  "description": "Pioneer blend with a bold, characterful flavor.",
+  "brand": {
+    "$oid": "6ad135eb5aa066d1f7049832"
+  },
+  "isAlcoholic": true,
+  "abv": 40,
+  "country": [
+    "UK"
+  ],
+  "flavorProfile": [
+    "SPICY",
+    "SMOKY",
+    "SWEET"
+  ],
+  "dietaryTags": [
+    "VEGAN",
+    "VEGETARIAN"
+  ],
+  "servingTemp": "ROOM_TEMP",
+  "requiresAgeCheck": true,
+  "isFragile": true,
+  "price": 25,
+  "__v": 0,
+  "createdAt": {
+    "$date": "2026-10-15T20:22:03.466Z"
+  },
+  "updatedAt": {
+    "$date": "2026-10-15T20:22:03.466Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "6ad135eb5aa066d1f704984e"
+  },
+  "name": "Schweppes Tonic Water",
+  "slug": "schweppes-tonic-water",
+  "description": "Classic sparkling tonic water with quinine.",
+  "brand": {
+    "$oid": "6ad135eb5aa066d1f7049833"
+  },
+  "isAlcoholic": false,
+  "country": [
+    "UK"
+  ],
+  "flavorProfile": [
+    "BITTER",
+    "CRISP"
+  ],
+  "dietaryTags": [
+    "VEGAN",
+    "VEGETARIAN",
+    "GLUTEN_FREE"
+  ],
+  "servingTemp": "CHILLED",
+  "requiresAgeCheck": false,
+  "isFragile": true,
+  "price": 2,
+  "__v": 0,
+  "createdAt": {
+    "$date": "2026-10-15T20:22:03.466Z"
+  },
+  "updatedAt": {
+    "$date": "2026-10-15T20:22:03.466Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "6ad135eb5aa066d1f704984f"
+  },
+  "name": "Schweppes Ginger Ale",
+  "slug": "schweppes-ginger-ale",
+  "description": "Crisp and refreshing ginger ale.",
+  "brand": {
+    "$oid": "6ad135eb5aa066d1f7049833"
+  },
+  "isAlcoholic": false,
+  "country": [
+    "UK"
+  ],
+  "flavorProfile": [
+    "SWEET",
+    "SPICY",
+    "CRISP"
+  ],
+  "dietaryTags": [
+    "VEGAN",
+    "VEGETARIAN",
+    "GLUTEN_FREE"
+  ],
+  "servingTemp": "CHILLED",
+  "requiresAgeCheck": false,
+  "isFragile": true,
+  "price": 2,
+  "__v": 0,
+  "createdAt": {
+    "$date": "2026-10-15T20:22:03.466Z"
+  },
+  "updatedAt": {
+    "$date": "2026-10-15T20:22:03.466Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "6ad135eb5aa066d1f7049850"
+  },
+  "name": "Jack Daniel's Old No. 7",
+  "slug": "jack-daniel-s-old-no--7",
+  "description": "Mellowed drop by drop through 10-feet of sugar maple charcoal.",
+  "brand": {
+    "$oid": "6ad135eb5aa066d1f7049834"
+  },
+  "isAlcoholic": true,
+  "abv": 40,
+  "country": [
+    "USA"
+  ],
+  "flavorProfile": [
+    "CARAMEL",
+    "VANILLA",
+    "WOODY"
+  ],
+  "dietaryTags": [
+    "VEGAN",
+    "VEGETARIAN"
+  ],
+  "servingTemp": "ROOM_TEMP",
+  "requiresAgeCheck": true,
+  "isFragile": true,
+  "price": 30,
+  "__v": 0,
+  "createdAt": {
+    "$date": "2026-10-15T20:22:03.467Z"
+  },
+  "updatedAt": {
+    "$date": "2026-10-15T20:22:03.467Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "6ad135eb5aa066d1f7049851"
+  },
+  "name": "Jack Daniel's Tennessee Honey",
+  "slug": "jack-daniel-s-tennessee-honey",
+  "description": "A blend of Jack Daniel’s Tennessee Whiskey and a unique honey liqueur.",
+  "brand": {
+    "$oid": "6ad135eb5aa066d1f7049834"
+  },
+  "isAlcoholic": true,
+  "abv": 35,
+  "country": [
+    "USA"
+  ],
+  "flavorProfile": [
+    "SWEET",
+    "CARAMEL",
+    "VANILLA",
+    "NUTTY"
+  ],
+  "dietaryTags": [
+    "VEGETARIAN"
+  ],
+  "servingTemp": "ROOM_TEMP",
+  "requiresAgeCheck": true,
+  "isFragile": true,
+  "price": 28,
+  "__v": 0,
+  "createdAt": {
+    "$date": "2026-10-15T20:22:03.467Z"
+  },
+  "updatedAt": {
+    "$date": "2026-10-15T20:22:03.467Z"
+  }
+}]

@@ -2,6 +2,7 @@ import type { Request, Response } from "express";
 import Stripe from "stripe"; // Added for strict Stripe typing
 import { prisma } from "../../prisma/client.ts";
 import { stripe } from "../lib/stripe.ts";
+import { sendPaymentSucessfullDetailsToKafkaTopic } from "../services/sendNotification.ts";
 
 export async function webHookController(req: Request, res: Response) {
   // express types header as string | string[] | undefined
@@ -55,6 +56,8 @@ export async function webHookController(req: Request, res: Response) {
         },
         data: { status: "PAID" },
       });
+
+      await sendPaymentSucessfullDetailsToKafkaTopic(orderId);
     }
 
     // TODO: Notify Catalog Service that payment is complete

@@ -19,3 +19,4 @@ async def consume_drink_added_events():
             # Here you can process the event, e.g., update your recommendation model
     finally:
         await consumer.stop()
+
